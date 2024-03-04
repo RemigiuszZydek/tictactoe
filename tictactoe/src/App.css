@@ -1,0 +1,68 @@
+.Title {
+	text-align: center;
+	margin-bottom: 100px;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", sans-serif;
+	background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	color: #00f260; /* Neonowy zielony dla tekstu */
+}
+
+.board-row {
+	display: grid;
+	grid-template-columns: repeat(3, 120px);
+	grid-gap: 100px;
+	background-color: #302b63;
+	padding: 40px;
+	border-radius: 20px;
+	box-shadow: 0 5px 20px rgba(0, 255, 194, 0.5);
+}
+
+.square {
+	width: 120px; /* Ustaw szerokość */
+	height: 120px; /* Ustaw wysokość, aby pasowała do szerokości */
+	background-color: #1a1a1d;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em; /* Dostosuj, jeśli potrzebujesz większych symboli */
+	border-radius: 10px;
+	transition: background-color 0.3s ease;
+	cursor: pointer;
+	color: #00f260; /* Neonowy zielony dla symboli X i O */
+}
+
+.square:hover {
+	background-color: #302b63;
+}
+button {
+	width: 660px;
+	background-color: #8a2be2; /* Neonowy fiolet */
+	border: none;
+	color: #00f260; /* Neonowy zielony */
+	padding: 15px 30px;
+	font-size: 18px;
+	margin: 20px 0;
+	cursor: pointer;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2;
+	transition: all 0.3s ease;
+}
+
+button:hover {
+	box-shadow: 0 0 15px #8a2be2, 0 0 25px #8a2be2, 0 0 35px #8a2be2,
+		0 0 45px #8a2be2;
+}
+
+.status {
+	font-size: 20px;
+	margin: 20px 0;
+	color: #00f260;
+	text-align: center;
+}

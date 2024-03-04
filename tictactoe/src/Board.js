@@ -3,7 +3,7 @@ import Square from "./Square";
 
 class Board extends Component {
 	constructor(props) {
-		super(prosp);
+		super(props);
 		this.state = {
 			squares: Array(9).fill(null),
 			xIsNext: true,
@@ -31,10 +31,13 @@ class Board extends Component {
 		);
 	}
 	render() {
+		const isDraw = this.state.squares.every((square) => square !== null);
 		const winner = calculateWinner(this.state.squares);
 		let status;
 		if (winner) {
 			status = "Winner: " + winner;
+		} else if (isDraw) {
+			status = "Remis";
 		} else {
 			status = "Next player: " + (this.state.xIsNext ? "X" : "O");
 		}
@@ -42,17 +45,17 @@ class Board extends Component {
 		return (
 			<div>
 				<div className="status">{status}</div>
-				<div className="boar-row">
+				<div className="board-row">
 					{this.renderSquare(0)}
 					{this.renderSquare(1)}
 					{this.renderSquare(2)}
 				</div>
-				<div className="boar-row">
+				<div className="board-row">
 					{this.renderSquare(3)}
 					{this.renderSquare(4)}
 					{this.renderSquare(5)}
 				</div>
-				<div className="boar-row">
+				<div className="board-row">
 					{this.renderSquare(6)}
 					{this.renderSquare(7)}
 					{this.renderSquare(8)}
@@ -61,8 +64,7 @@ class Board extends Component {
 		);
 	}
 }
-
-function calculateWinner(square) {
+function calculateWinner(squares) {
 	const lines = [
 		[0, 1, 2],
 		[3, 4, 5],
@@ -81,3 +83,4 @@ function calculateWinner(square) {
 	}
 	return null;
 }
+export default Board;
